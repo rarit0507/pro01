@@ -23,11 +23,11 @@ public class Main extends HttpServlet {
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String author = "�̿���";
+		String author = "이예린";
 		ServletContext application = request.getServletContext();
 		String realPath = request.getSession().getServletContext().getRealPath("/");
 		application.setAttribute("realPath", realPath);
-		application.setAttribute("title", "������ �Ұ�");
+		application.setAttribute("title", "공릉동소개");
 				
 		NoticeDAO ndao = new NoticeDAO();
 		List<Notice> latestNotiList = ndao.getLatestNoticeList();

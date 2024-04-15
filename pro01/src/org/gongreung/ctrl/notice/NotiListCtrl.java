@@ -15,10 +15,10 @@ import org.gongreung.ctrl.dao.NoticeDAO;
 import org.gongreung.ctrl.dto.Notice;
 
 @WebServlet("/NotiList.do")
-public class NoticeListCtrl extends HttpServlet {
+public class NotiListCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public NoticeListCtrl() {
+    public NotiListCtrl() {
         super();
     }
 

@@ -55,58 +55,56 @@ th.item3 { width:20%; }
 	</section>
 	<section class="page" id="page2">
 		<div style="width:1400px; margin:0 auto;">	
-			<h3 class="page_title">Hot Place(핫 플레이스)</h3>
+			<h3 class="page_title">공릉동 핫플레이스</h3>
 			<div class="right_item" style="text-align:right;padding-bottom:12px;">
-				<a href="${hpath }/QnaList.do" title="더보기" class="more">
+				<a href="${hpath }/GuideList.do" title="더보기" class="more">
 					<i class="fas fa-plus fa-fw"></i> 더보기
 				</a>
 			</div>
-			<table class="table" id="tb3">
+			<table class="table" id="tb1">
 				<thead>
 					<tr>
-						<th class="item1">번호</th>
-						<th class="item2">제목</th>
-						<th class="item3">작성일</th>
-						<th class="item4">조회수</th>
+						<th class="item1">장소코드</th>
+						<th class="item2">장소명</th>
+						<th class="item3">주소</th>
+						<th class="item4">연락처</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:if test="${not empty latestQnaList }">
-						<c:forEach var="dto" items="${latestQnaList }">
+					<c:if test="${not empty latestGuideList }">
+						<c:forEach var="dto" items="${latestGuideList }">
 						<tr>
-							<td>${dto.no }</td>
+							<td>${dto.pcode }</td>
 							<td>
 								<c:if test="${empty sid }">
-								<strong>${dto.title }</strong>
+								<strong>${dto.pname }</strong>
 								</c:if>
 								<c:if test="${not empty sid }">
-								<a href="${path0 }/GetQna.do?no=${dto.no }">${dto.title }</a>
+								<a href="${path0 }/GetGuide.do?pcode=${dto.pcode }">${dto.pname }</a>
 								</c:if>
 							</td>
-							<td>${dto.resdate }</td><td>${dto.visited }</td>
+							<td>${dto.paddr }</td><td>${dto.ptel }</td>
 						</tr>
 						</c:forEach>
 					</c:if>
-					<c:if test="${empty latestQnaList }">
+					<c:if test="${empty latestGuideList }">
 						<tr>
-							<td colspan="4"><strong>Qna가 존재하지 않습니다.</strong></td>
+							<td colspan="4"><strong>핫플레이스 내역이 존재하지 않습니다.</strong></td>
 						</tr>
 					</c:if>
 				</tbody>
 			</table>
 		</div>
-			
-		</div>		
 	</section>
 	<section class="page" id="page3">
 		<div style="width:1400px; margin:0 auto;">	
-			<h3 class="page_title">최신 묻고 답하기</h3>
+			<h3 class="page_title">QnA</h3>
 			<div class="right_item" style="text-align:right;padding-bottom:12px;">
-				<a href="${hpath }/QnaList.do" title="더보기" class="more">
+				<a href="${hpath }/GetQnaList.do" title="더보기" class="more">
 					<i class="fas fa-plus fa-fw"></i> 더보기
 				</a>
 			</div>
-			<table class="table" id="tb3">
+			<table class="table" id="tb2">
 				<thead>
 					<tr>
 						<th class="item1">번호</th>
@@ -134,17 +132,16 @@ th.item3 { width:20%; }
 					</c:if>
 					<c:if test="${empty latestQnaList }">
 						<tr>
-							<td colspan="4"><strong>Qna가 존재하지 않습니다.</strong></td>
+							<td colspan="4"><strong>QnA 내역이 존재하지 않습니다.</strong></td>
 						</tr>
 					</c:if>
 				</tbody>
 			</table>
 		</div>
-		</div>	
 	</section>
 	<section class="page" id="page4">
 		<div style="width:1400px; margin:0 auto;">	
-			<h3 class="page_title">최근 공지사항</h3>
+			<h3 class="page_title">공지사항</h3>
 			<div class="right_item" style="text-align:right;padding-bottom:12px;">
 				<a href="${hpath }/NotiList.do" title="더보기" class="more">
 					<i class="fas fa-plus fa-fw"></i> 더보기

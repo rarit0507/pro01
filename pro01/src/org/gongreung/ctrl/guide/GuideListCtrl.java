@@ -31,11 +31,6 @@ public class GuideListCtrl extends HttpServlet {
 		List<Guide> gList = new ArrayList<>();
 		gList = dao.getGuideList();
 		request.setAttribute("gList", gList);
-		
-		System.out.println("=============확인2========================");
-		System.out.println(gList);
-		System.out.println("=========================================");
-		
 		RequestDispatcher view = request.getRequestDispatcher("/guide/guideList.jsp");
 		view.forward(request, response);
 		

@@ -28,7 +28,7 @@ public class EditProTrafficCtrl extends HttpServlet {
 		traffic.setTno(Integer.parseInt(request.getParameter("no")));
 		traffic.setTtype(request.getParameter("ttype"));
 		traffic.setNo(request.getParameter("no"));
-		traffic.setRoute(request.getParameter("rout"));
+		traffic.setRoute(request.getParameter("route"));
 		traffic.setComent(request.getParameter("coment"));
 		traffic.setUri(request.getParameter("uri"));
 		
@@ -38,7 +38,7 @@ public class EditProTrafficCtrl extends HttpServlet {
 		if(cnt>0) {
 			response.sendRedirect("/pro01/GetTrafficList.do");
 		} else {
-			response.sendRedirect("/pro01/EditTraffic.do?no="+traffic.getTno());
+			response.sendRedirect("/pro01/EditTraffic.do?no="+traffic.getNo());
 		}
 	}
 }

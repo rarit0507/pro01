@@ -37,9 +37,9 @@ public class TrafficInsCtrl extends HttpServlet {
 		int cnt = dao.insTraffic(t);
 		
 		if(cnt>0) {
-			System.out.println("������ �߰� ����");
+			System.out.println("등록 성공");
 		} else {
-			System.out.println("������ �߰� ����");
+			System.out.println("등록 실패");
 		}
 		
 		System.out.println("�˻�11111111-------------------------------------");

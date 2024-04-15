@@ -23,15 +23,15 @@ public class DelTrafficCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		int tno = Integer.parseInt(request.getParameter("tno"));
+		String no = request.getParameter("no");
 		
 		TrafficDAO dao = new TrafficDAO();
-		int cnt = dao.delTraffic(tno);
+		int cnt = dao.delTraffic(no);
 		
 		if(cnt>0) {
 			response.sendRedirect("/pro01/GetTrafficList.do");
 		} else {
-			response.sendRedirect("/pro01/GetTraffic2.do?tno="+tno);	//¿ø·¡ GetTraffic2.do¿´À½
+			response.sendRedirect("/pro01/GetTraffic2.do?no="+no);	//¿ø·¡ GetTraffic2.do¿´À½
 		}
 	}
 

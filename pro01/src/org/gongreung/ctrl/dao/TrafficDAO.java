@@ -97,13 +97,13 @@ public class TrafficDAO {
 		return cnt;
 	}
 	
-	public int delTraffic(int no){
+	public int delTraffic(String no){
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.DEL_TRAFFIC);
-			pstmt.setInt(1, no);
+			pstmt.setString(1, no);
 			cnt = pstmt.executeUpdate();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -113,14 +113,14 @@ public class TrafficDAO {
 		return cnt;
 	}
 
-	public Traffic getTraffic(int no) {
+	public Traffic getTraffic(String no) {
 		Traffic t = new Traffic();
 		OracleDB oracle = new OracleDB();
 		
 		try {
 			con = oracle.connect();
 			pstmt = con.prepareStatement(SqlLang.SELECT_TRAFFIC_BYNO);
-			pstmt.setInt(1, no);
+			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				t.setTtype(rs.getString("ttype"));
@@ -137,7 +137,7 @@ public class TrafficDAO {
 		return t;
 	}
 	
-	public Traffic getTraffic2(int no) {
+	public Traffic getTraffic2(String no) {
 		Traffic t = new Traffic();
 		OracleDB oracle = new OracleDB();
 		
@@ -145,7 +145,7 @@ public class TrafficDAO {
 			con = oracle.connect();
 			pstmt = null;
 			pstmt = con.prepareStatement(SqlLang.SELECT_TRAFFIC_BYNO);
-			pstmt.setInt(1, no);
+			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				t.setTtype(rs.getString("ttype"));

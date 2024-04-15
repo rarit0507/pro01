@@ -33,7 +33,7 @@ public class EditTrafficCtrl extends HttpServlet {
 			response.sendRedirect("/GetTrafficList.do");
 		}
 		
-		int no = Integer.parseInt(request.getParameter("no"));
+		String no = request.getParameter("no");
 		
 		TrafficDAO dao = new TrafficDAO();
 		Traffic traffic = dao.getTraffic2(no);

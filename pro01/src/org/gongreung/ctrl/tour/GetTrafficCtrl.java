@@ -25,7 +25,7 @@ public class GetTrafficCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 
-		int no = Integer.parseInt(request.getParameter("no"));
+		String no = request.getParameter("no");
 		
 		TrafficDAO dao = new TrafficDAO();
 		Traffic traffic = dao.getTraffic(no);
