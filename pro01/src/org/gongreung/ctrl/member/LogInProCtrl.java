@@ -37,20 +37,20 @@ public class LogInProCtrl extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		RequestDispatcher view;
 		
-		if(id.equals(mem.getId()) && pw.equals(mem.getPw())) { //�α��� ó�� ���
+		if(id.equals(mem.getId()) && pw.equals(mem.getPw())) {
 			session.setAttribute("sid", mem.getId());
 			session.setAttribute("sname", mem.getName());
 			response.sendRedirect("/pro01");
-		} else if(id.equals(mem.getId())) { //��й�ȣ Ʋ��
-			//response.sendRedirect("/member/login.jsp?msg=�ش� ȸ���� ��й�ȣ�� ��ġ���� �ʽ��ϴ�");
+		} else if(id.equals(mem.getId())) {
+			//response.sendRedirect("/member/login.jsp?msg=비밀번호가 틀립니다.");
 			//out.println("<script>history.go(-1);</script>");
-			request.setAttribute("msg", "�ش� ȸ���� ��й�ȣ�� ��ġ���� �ʽ��ϴ�");
+			request.setAttribute("msg", "비밀번호가 틀립니다.");
 			view = request.getRequestDispatcher("/member/login.jsp");
 			view.forward(request, response);
 		} else {
-			//response.sendRedirect("/member/login.jsp?msg=�ش� ȸ���� �������� �ʽ��ϴ�");
+			//response.sendRedirect("/member/login.jsp?msg=존재하지 않는 회원입니다.");
 			//out.println("<script>history.go(-1);</script>");
-			request.setAttribute("msg", "�ش� ȸ���� �������� �ʽ��ϴ�");
+			request.setAttribute("msg", "존재하지 않는 회원입니다.");
 			view = request.getRequestDispatcher("/member/login.jsp");
 			view.forward(request, response);
 		}

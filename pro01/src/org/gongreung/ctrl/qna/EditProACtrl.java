@@ -7,16 +7,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.gongreung.ctrl.dao.QnaDAO;
 import org.gongreung.ctrl.dto.Qna;
 
-@WebServlet("/AnswerIns.do")
-public class AnswerInsCtrl extends HttpServlet {
+@WebServlet("/EditProA.do")
+public class EditProACtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public AnswerInsCtrl() {
+    public EditProACtrl() {
         super();
     }
 
@@ -25,27 +24,22 @@ public class AnswerInsCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		HttpSession session = request.getSession();
-		
-		String aid = (String) session.getAttribute("sid");
+		int parno = Integer.parseInt(request.getParameter("parno"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
 		
 		Qna qna = new Qna();
-		qna.setParno(Integer.parseInt(request.getParameter("parno")));
-		qna.setTitle(request.getParameter("title"));
-		qna.setContent(request.getParameter("content"));
-		qna.setAid(aid);
-		QnaDAO dao = new QnaDAO();
-		int cnt = dao.insAnswer(qna);
+		qna.setParno(parno);
+		qna.setTitle(title);
+		qna.setContent(content);
 		
-		System.out.println("검사1========================");
-		System.out.println(qna);
-		System.out.println("========================");
+		QnaDAO dao = new QnaDAO();
+		int cnt = dao.editProA(qna);
 		
 		if(cnt>=1) {
-			response.sendRedirect("/pro01/GetQna.do?no="+qna.getParno());
+			response.sendRedirect("/pro01/GetQnaList.do");
 		} else {
-			response.sendRedirect("/qna/aIns.jsp?parno="+qna.getParno());
+			response.sendRedirect("/pro01/GetQna.do?parno="+parno);
 		}
 	}
-
 }

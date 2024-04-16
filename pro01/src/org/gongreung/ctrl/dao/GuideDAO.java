@@ -58,14 +58,6 @@ public class GuideDAO {
 		} finally {
 			oracle.close(con, pstmt, rs);
 		}
-		
-    	//mlog.debug("log ����~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    	//mlog.debug(gList);
-		
-		System.out.println("log ����~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(gList);
-		System.out.println("===========================================");
-
 		return gList;
 	}
 	

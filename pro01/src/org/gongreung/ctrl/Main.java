@@ -11,8 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.gongreung.ctrl.dao.GuideDAO;
 import org.gongreung.ctrl.dao.NoticeDAO;
+import org.gongreung.ctrl.dao.QnaDAO;
+import org.gongreung.ctrl.dto.Guide;
 import org.gongreung.ctrl.dto.Notice;
+import org.gongreung.ctrl.dto.Qna;
 
 @WebServlet("/pro01")
 public class Main extends HttpServlet {
@@ -24,6 +28,7 @@ public class Main extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String author = "이예린";
+		
 		ServletContext application = request.getServletContext();
 		String realPath = request.getSession().getServletContext().getRealPath("/");
 		application.setAttribute("realPath", realPath);
@@ -31,11 +36,20 @@ public class Main extends HttpServlet {
 				
 		NoticeDAO ndao = new NoticeDAO();
 		List<Notice> latestNotiList = ndao.getLatestNoticeList();
-//		List<Qna> latestQnaList = new ArrayList<>();
-		
 		request.setAttribute("latestNotiList", latestNotiList);
-//		request.setAttribute("latestQnaList", latestQnaList);
+		
+		GuideDAO gdao = new GuideDAO();
+		List<Guide> latestGuideList = gdao.getLatestGuideList();
+		request.setAttribute("latestGuideList", latestGuideList);
+		
+		QnaDAO qdao = new QnaDAO();
+		List<Qna> latestQnaList = qdao.getLatestQnaList();
+		request.setAttribute("latestQnaList", latestQnaList);
+		
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/index.jsp");
 		view.forward(request, response);
 	}
+	
+	
+	
 }

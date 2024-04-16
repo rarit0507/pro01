@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.gongreung.ctrl.dao.QnaDAO;
 import org.gongreung.ctrl.dto.Qna;
 
-@WebServlet("/EditProQna.do")
-public class EditProQnaCtrl extends HttpServlet {
+@WebServlet("/EditProQ.do")
+public class EditProQCtrl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public EditProQnaCtrl() {
+    public EditProQCtrl() {
         super();
     }
 
@@ -34,7 +34,7 @@ public class EditProQnaCtrl extends HttpServlet {
 		qna.setContent(content);
 		
 		QnaDAO dao = new QnaDAO();
-		int cnt = dao.editProQna(qna);
+		int cnt = dao.editProQ(qna);
 		
 		if(cnt>=1) {
 			response.sendRedirect("/pro01/GetQnaList.do");
@@ -42,5 +42,4 @@ public class EditProQnaCtrl extends HttpServlet {
 			response.sendRedirect("/pro01/GetQna.do?no="+no);
 		}
 	}
-
 }

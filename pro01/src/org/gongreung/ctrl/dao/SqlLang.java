@@ -19,7 +19,10 @@ public interface SqlLang {
 	String DEL_MEMBER = "delete from member where id=?";
 	
 	String SELECT_ALL_QNA = "select * from qna order by parno desc, plevel asc";
+	String SELECT_ALL_Q = "select * from qna where plevel=1 order by parno desc, plevel asc";
 	String SELECT_QNA_BYNO = "select * from qna where no=?";
+	String SELECT_Q_BYNO = "select * from qna where plevel=1 and no=?";			//
+	String SELECT_A_BYNO = "select * from qna where plevel=2 and parno=? order by no desc";			//
 	String DEL_ANSWER = "delete from qna where no=?";
 	String DEL_QUESTION = "delete from qna where parno=?";
 	String UPD_QNA = "update qna set title=?, content=? where no=?";
@@ -36,10 +39,10 @@ public interface SqlLang {
 	String UPD_DATA = "update data set title=?, content=? datafile=? where no=?";
 	String DEL_DATA = "delete from data where no=?";
 	
-	String SELECT_ALL_GUIDE = "select * from guide order by pcode desc";
-	String SELECT_GUIDE_BYNO = "select * from guide where pcode=?";
-	String UPD_GUIDE = "update guide set pname=?, ptype=?, paddr=?, ptel=?,pcoment=? where pcode=?";
-	String DEL_GUIDE = "delete from guide where pcode=?";
+	String SELECT_ALL_GUIDE = "select * from guide2 order by pcode desc";
+	String SELECT_GUIDE_BYNO = "select * from guide2 where pcode=?";
+	String UPD_GUIDE = "update guide2 set pname=?, ptype=?, paddr=?, ptel=?,pcoment=? where pcode=?";
+	String DEL_GUIDE = "delete from guide2 where pcode=?";
 	
 
 	

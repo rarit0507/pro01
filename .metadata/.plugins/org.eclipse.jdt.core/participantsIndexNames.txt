@@ -7,6 +7,8 @@ D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\80639171.in
 \pro01
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3412294914.index
 \pro01
+D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2124362657.index
+\pro01\src
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2546821375.index
 \pro01
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\836537028.index
@@ -17,6 +19,8 @@ D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3203839293.
 \pro01
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\40354954.index
 \pro01
+D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\398111735.index
+\pro01\src
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\883062382.index
 \pro01
 D:\yrl\mypro01\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4085957304.index

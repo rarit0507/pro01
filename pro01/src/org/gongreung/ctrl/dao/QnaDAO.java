@@ -44,7 +44,7 @@ public class QnaDAO {
 		OracleDB oracle = new OracleDB();
 		try {
 			con = oracle.connect();
-			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_QNA);
+			pstmt = con.prepareStatement(SqlLang.SELECT_ALL_Q);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Qna q = new Qna(rs.getInt("no"),
@@ -155,6 +155,42 @@ public class QnaDAO {
 		return cnt;
 	}
 	
+	public int editProQ(Qna q) {
+		int cnt = 0;
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.UPD_QNA);
+			pstmt.setString(1, q.getTitle());
+			pstmt.setString(2, q.getContent());
+			pstmt.setInt(3, q.getNo());
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt);
+		}
+		return cnt;
+	}
+	
+	public int editProA(Qna q) {
+		int cnt = 0;
+		OracleDB oracle = new OracleDB();
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.UPD_QNA);
+			pstmt.setString(1, q.getTitle());
+			pstmt.setString(2, q.getContent());
+			pstmt.setInt(3, q.getNo());
+			cnt = pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt);
+		}
+		return cnt;
+	}
+	
 	public int delQuestion(int parno){
 		int cnt = 0;
 		OracleDB oracle = new OracleDB();
@@ -196,6 +232,64 @@ public class QnaDAO {
 			pstmt = null;
 			pstmt = con.prepareStatement(SqlLang.SELECT_QNA_BYNO);
 			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				q.setNo(rs.getInt("no"));
+				q.setPlevel(rs.getInt("plevel"));
+				q.setParno(rs.getInt("parno"));
+				q.setTitle(rs.getString("title"));
+				q.setContent(rs.getString("content"));
+				q.setResdate(rs.getString("resdate"));
+				q.setVisited(rs.getInt("visited"));
+				q.setAid(rs.getString("aid"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt, rs);
+		}
+		return q;
+	}
+
+	public Qna getQnaq(int no) {
+		Qna q = new Qna();
+		OracleDB oracle = new OracleDB();
+		
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.VISITED_UPD_QNA);
+			pstmt.setInt(1, no);
+			pstmt.executeUpdate();
+			pstmt = null;
+			pstmt = con.prepareStatement(SqlLang.SELECT_Q_BYNO);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				q.setNo(rs.getInt("no"));
+				q.setPlevel(rs.getInt("plevel"));
+				q.setParno(rs.getInt("parno"));
+				q.setTitle(rs.getString("title"));
+				q.setContent(rs.getString("content"));
+				q.setResdate(rs.getString("resdate"));
+				q.setVisited(rs.getInt("visited"));
+				q.setAid(rs.getString("aid"));
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			oracle.close(con, pstmt, rs);
+		}
+		return q;
+	}
+	
+	public Qna getQnaa(int parno) {
+		Qna q = new Qna();
+		OracleDB oracle = new OracleDB();
+		
+		try {
+			con = oracle.connect();
+			pstmt = con.prepareStatement(SqlLang.SELECT_A_BYNO);
+			pstmt.setInt(1, parno);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				q.setNo(rs.getInt("no"));

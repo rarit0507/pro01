@@ -30,7 +30,6 @@ public class EditQnaCtrl extends HttpServlet {
 		
 		QnaDAO dao = new QnaDAO();
 		Qna qna = dao.getQna2(no);
-		
 		request.setAttribute("qna", qna);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/qna/editQna.jsp");

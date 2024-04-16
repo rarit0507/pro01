@@ -24,15 +24,15 @@ public class GuideListCtrl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		response.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html; charset=UTF-8");
-		
-		GuideDAO dao = new GuideDAO();
-		List<Guide> gList = new ArrayList<>();
-		gList = dao.getGuideList();
-		request.setAttribute("gList", gList);
-		RequestDispatcher view = request.getRequestDispatcher("/guide/guideList.jsp");
-		view.forward(request, response);
+	      response.setCharacterEncoding("UTF-8");
+	      response.setContentType("text/html; charset=UTF-8");
+	      
+	      GuideDAO dao = new GuideDAO();
+	      List<Guide> gList = new ArrayList<>();
+	      gList = dao.getGuideList();
+	      request.setAttribute("gList", gList);      
+	      RequestDispatcher view = request.getRequestDispatcher("/guide/guideList.jsp");
+	      view.forward(request, response);
 		
 	}
 

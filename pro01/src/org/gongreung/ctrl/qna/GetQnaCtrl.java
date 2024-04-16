@@ -27,10 +27,13 @@ public class GetQnaCtrl extends HttpServlet {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		QnaDAO dao = new QnaDAO();
-		Qna qna = dao.getQna(no);
+		QnaDAO dao1 = new QnaDAO();
+		Qna qnaq = dao1.getQnaq(no);
+		request.setAttribute("qnaq", qnaq);
 		
-		request.setAttribute("qna", qna);
+		QnaDAO dao2 = new QnaDAO();
+		Qna qnaa = dao2.getQnaa(no);
+		request.setAttribute("qnaa", qnaa);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/qna/getQna.jsp");
 		view.forward(request, response);

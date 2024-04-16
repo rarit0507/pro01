@@ -59,5 +59,4 @@ public class Guide {
 				+ ", pcoment=" + pcoment + "]";
 	}
 	
-	
 }
