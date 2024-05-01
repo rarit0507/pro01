@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.QnaDAO;
 import org.gongreung.ctrl.dto.Qna;
+import org.gongreung.dao.QnaDAO;
 
 @WebServlet("/GetQna.do")
 public class GetQnaCtrl extends HttpServlet {
@@ -27,13 +27,10 @@ public class GetQnaCtrl extends HttpServlet {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		
-		QnaDAO dao1 = new QnaDAO();
-		Qna qnaq = dao1.getQnaq(no);
-		request.setAttribute("qnaq", qnaq);
+		QnaDAO dao = new QnaDAO();
+		Qna qna = dao.getQna(no);
 		
-		QnaDAO dao2 = new QnaDAO();
-		Qna qnaa = dao2.getQnaa(no);
-		request.setAttribute("qnaa", qnaa);
+		request.setAttribute("qna", qna);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/qna/getQna.jsp");
 		view.forward(request, response);

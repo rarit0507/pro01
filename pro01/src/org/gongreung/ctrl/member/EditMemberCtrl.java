@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.MemberDAO;
 import org.gongreung.ctrl.dto.Member;
+import org.gongreung.dao.MemberDAO;
+import org.gongreung.util.AES256;
 
 @WebServlet("/EditMember.do")
 public class EditMemberCtrl extends HttpServlet {
@@ -28,6 +29,14 @@ public class EditMemberCtrl extends HttpServlet {
 		String id = request.getParameter("id");
 		MemberDAO dao = new MemberDAO();
 		Member mem = dao.getMember(id);
+		
+		String key = "%02x";
+		
+		try {
+			mem.setPw(AES256.decryptAES256(mem.getPw(), key));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		request.setAttribute("mem", mem);
 		RequestDispatcher view = request.getRequestDispatcher("/member/memberInfo.jsp");

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.NoticeDAO;
+import org.gongreung.dao.NoticeDAO;
 
 @WebServlet("/DelNotice.do")
 public class DelNoticeCtrl extends HttpServlet {

@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.NoticeDAO;
 import org.gongreung.ctrl.dto.Notice;
+import org.gongreung.dao.NoticeDAO;
 
 @WebServlet("/EditNotice.do")
 public class EditNoticeCtrl extends HttpServlet {

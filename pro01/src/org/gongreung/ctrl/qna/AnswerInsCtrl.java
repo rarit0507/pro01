@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.QnaDAO;
 import org.gongreung.ctrl.dto.Qna;
+import org.gongreung.dao.QnaDAO;
 
 @WebServlet("/AnswerIns.do")
 public class AnswerInsCtrl extends HttpServlet {
@@ -37,12 +37,8 @@ public class AnswerInsCtrl extends HttpServlet {
 		QnaDAO dao = new QnaDAO();
 		int cnt = dao.insAnswer(qna);
 		
-		System.out.println("검사1========================");
-		System.out.println(qna);
-		System.out.println("========================");
-		
 		if(cnt>=1) {
-			response.sendRedirect("/pro01/GetQna.do?no="+qna.getParno());
+			response.sendRedirect("/pro01/GetQnaList.do");
 		} else {
 			response.sendRedirect("/qna/aIns.jsp?parno="+qna.getParno());
 		}

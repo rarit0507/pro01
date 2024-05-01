@@ -27,7 +27,7 @@
 			<nav aria-label="breadcrumb" style="text-align:right">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="#">Home</a></li>
-			    <li class="breadcrumb-item"><a href="${path0 }/GetQnaList.do">QnA</a></li>
+			    <li class="breadcrumb-item"><a href="${path0 }/GetQnaList.do">질문 및 답변</a></li>
 			    <li class="breadcrumb-item active" aria-current="page">질문 등록</li>
 			  </ol>
 			</nav>

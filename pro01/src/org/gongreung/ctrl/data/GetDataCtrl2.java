@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.DataDAO;
 import org.gongreung.ctrl.dto.Data;
+import org.gongreung.dao.DataDAO;
 
 @WebServlet("/GetData2.do")
 public class GetDataCtrl2 extends HttpServlet {

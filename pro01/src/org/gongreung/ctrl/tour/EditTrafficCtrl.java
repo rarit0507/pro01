@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.TrafficDAO;
 import org.gongreung.ctrl.dto.Traffic;
+import org.gongreung.dao.TrafficDAO;
 
 @WebServlet("/EditTraffic.do")
 public class EditTrafficCtrl extends HttpServlet {

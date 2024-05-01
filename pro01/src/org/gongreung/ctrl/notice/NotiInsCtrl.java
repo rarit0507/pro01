@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.NoticeDAO;
 import org.gongreung.ctrl.dto.Notice;
+import org.gongreung.dao.NoticeDAO;
 
 @WebServlet("/NotiIns.do")
 public class NotiInsCtrl extends HttpServlet {

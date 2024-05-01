@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.TrafficDAO;
 import org.gongreung.ctrl.dto.Traffic;
+import org.gongreung.dao.TrafficDAO;
 
 @WebServlet("/GetTraffic2.do")
 public class GetTrafficCtrl2 extends HttpServlet {

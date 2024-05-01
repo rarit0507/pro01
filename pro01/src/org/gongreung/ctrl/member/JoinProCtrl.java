@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.MemberDAO;
 import org.gongreung.ctrl.dto.Member;
+import org.gongreung.dao.MemberDAO;
+import org.gongreung.util.AES256;
 
 @WebServlet("/JoinPro.do")
 public class JoinProCtrl extends HttpServlet {
@@ -24,11 +25,23 @@ public class JoinProCtrl extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		String pw = request.getParameter("pw");
+		String key = "%02x";
+		String enPw = "";
+        try {
+            enPw = AES256.encryptAES256(pw, key);
+            System.out.println("비밀번호 암호화 : "+enPw);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
 		Member mem = new Member(request.getParameter("id"),
-				request.getParameter("pw"),
+				enPw,
 				request.getParameter("name"),
 				request.getParameter("email"),
-				request.getParameter("tel"));
+				request.getParameter("tel"),
+				request.getParameter("address1")+"$"+request.getParameter("address2"),
+				request.getParameter("postcode"));
 		
 		MemberDAO dao = new MemberDAO();
 		int cnt = dao.join(mem);

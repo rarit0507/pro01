@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.TrafficDAO;
+import org.gongreung.dao.TrafficDAO;
 
 @WebServlet("/DelTraffic.do")
 public class DelTrafficCtrl extends HttpServlet {

@@ -33,27 +33,27 @@ th.item3 { width:20%; }
 					<tbody>
 						<tr>
 							<th>장소 번호</th>
-							<td>${guide.pcode }</td>
+							<td>${g.pcode }</td>
 						</tr>
 						<tr>
 							<th>장소명</th>
-							<td>${guide.pname }</td>
+							<td>${g.pname }</td>
 						</tr>
 						<tr>
 							<th>장소 종류</th>
-							<td>${guide.ptype }</td>
+							<td>${g.ptype }</td>
 						</tr>
 						<tr>
 							<th>주소</th>		
-							<td>${guide.paddr }</td>
+							<td>${g.paddr }</td>
 						</tr>
 						<tr>
 							<th>연락처</th>
-							<td>${guide.ptel }</td>
+							<td>${g.ptel }</td>
 						</tr>
 						<tr>
 							<th>장소 설명</th>
-							<td>${guide.pcoment }</td>
+							<td>${g.pcoment }</td>
 						</tr>
 					</tbody>
 				</table>
@@ -61,8 +61,8 @@ th.item3 { width:20%; }
 				<div class="btn-group">
 				  <c:if test="${sid.equals('admin') }">
 				  <a href="${path0 }/guide/guide_ins.jsp" class="btn btn-secondary">글 등록</a>
-				  <a href="${path0 }/EditGuide.do?pcode=${guide.pcode }" class="btn btn-secondary">글 수정</a>
-				  <a href="${path0 }/DelGuide.do?pcode=${guide.pcode }" class="btn btn-secondary">글 삭제</a>
+				  <a href="${path0 }/EditGuide.do?pcode=${g.pcode }" class="btn btn-secondary">글 수정</a>
+				  <a href="${path0 }/DelGuide.do?pcode=${g.pcode }" class="btn btn-secondary">글 삭제</a>
 				  </c:if>
 				  <a href="${path0 }/GuideList.do" class="btn btn-secondary">글 목록</a>
 				</div>

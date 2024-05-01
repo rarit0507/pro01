@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.MemberDAO;
+import org.gongreung.dao.MemberDAO;
 
 @WebServlet("/DelMember.do")
 public class DelMemberCtrl extends HttpServlet {

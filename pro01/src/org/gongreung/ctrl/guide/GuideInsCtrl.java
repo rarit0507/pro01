@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.GuideDAO;
 import org.gongreung.ctrl.dto.Guide;
+import org.gongreung.dao.GuideDAO;
 
 @WebServlet("/GuideIns.do")
 public class GuideInsCtrl extends HttpServlet {

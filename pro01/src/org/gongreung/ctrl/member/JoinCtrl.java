@@ -18,7 +18,7 @@ public class JoinCtrl extends HttpServlet {
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("msg", "<strong>È¸¿øÁ¤º¸¸¦ ÀÔ·ÂÇÏ°í, ¾ÆÀÌµğ Áßº¹°Ë»ç¸¦ ÁøÇàÇØÁÖ½Ã±â ¹Ù¶ø´Ï´Ù.</strong>");
+		request.setAttribute("msg", "<strong>íšŒì›ì •ë³´ë¥¼ ì…ë ¥í•˜ê³ , ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬ë¥¼ ì§„í–‰í•´ì£¼ì‹œê¸° ë°”ëë‹ˆë‹¤.</strong>");
 		RequestDispatcher view = request.getRequestDispatcher("/member/join.jsp");
 		view.forward(request, response);
 	}

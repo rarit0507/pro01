@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.MemberDAO;
 import org.gongreung.ctrl.dto.Member;
+import org.gongreung.dao.MemberDAO;
+import org.gongreung.util.AES256;
 
 @WebServlet("/LogInPro.do")
 public class LogInProCtrl extends HttpServlet {
@@ -37,20 +38,27 @@ public class LogInProCtrl extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		RequestDispatcher view;
 		
-		if(id.equals(mem.getId()) && pw.equals(mem.getPw())) {
+		String key = "%02x";
+		
+		try {
+			mem.setPw(AES256.decryptAES256(mem.getPw(), key));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		if(id.equals(mem.getId()) && pw.equals(mem.getPw())) { //로그인 처리 대상
 			session.setAttribute("sid", mem.getId());
 			session.setAttribute("sname", mem.getName());
 			response.sendRedirect("/pro01");
-		} else if(id.equals(mem.getId())) {
-			//response.sendRedirect("/member/login.jsp?msg=비밀번호가 틀립니다.");
+		} else if(id.equals(mem.getId())) { //비밀번호 틀림
+			//response.sendRedirect("/member/login.jsp?msg=해당 회원의 비밀번호가 일치하지 않습니다");
 			//out.println("<script>history.go(-1);</script>");
-			request.setAttribute("msg", "비밀번호가 틀립니다.");
+			request.setAttribute("msg", "해당 회원의 비밀번호가 일치하지 않습니다");
 			view = request.getRequestDispatcher("/member/login.jsp");
 			view.forward(request, response);
 		} else {
-			//response.sendRedirect("/member/login.jsp?msg=존재하지 않는 회원입니다.");
+			//response.sendRedirect("/member/login.jsp?msg=해당 회원이 존재하지 않습니다");
 			//out.println("<script>history.go(-1);</script>");
-			request.setAttribute("msg", "존재하지 않는 회원입니다.");
+			request.setAttribute("msg", "해당 회원이 존재하지 않습니다");
 			view = request.getRequestDispatcher("/member/login.jsp");
 			view.forward(request, response);
 		}

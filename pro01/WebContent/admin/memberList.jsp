@@ -49,6 +49,8 @@ th.item5 { width:20%; }
 								<th class="item4">이름</th>
 								<th class="item5">이메일</th>
 								<th class="item6">전화번호</th>
+								<th class="item6">주소</th>
+								<th class="item6">우편번호</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -64,6 +66,8 @@ th.item5 { width:20%; }
 									<td>${dto.name }</td>
 									<td>${dto.email }</td>
 									<td>${dto.tel }</td>
+									<td>${dto.addr }</td>
+									<td>${dto.postcode }</td>
 								</tr>
 								</c:forEach>
 							</c:if>

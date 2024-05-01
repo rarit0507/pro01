@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.gongreung.ctrl.dao.GuideDAO;
 import org.gongreung.ctrl.dto.Guide;
+import org.gongreung.dao.GuideDAO;
 
 @WebServlet("/EditGuide.do")
 public class EditGuideCtrl extends HttpServlet {

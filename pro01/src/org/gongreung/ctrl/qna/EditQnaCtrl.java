@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.QnaDAO;
 import org.gongreung.ctrl.dto.Qna;
+import org.gongreung.dao.QnaDAO;
 
 @WebServlet("/EditQna.do")
 public class EditQnaCtrl extends HttpServlet {
@@ -30,6 +30,7 @@ public class EditQnaCtrl extends HttpServlet {
 		
 		QnaDAO dao = new QnaDAO();
 		Qna qna = dao.getQna2(no);
+		
 		request.setAttribute("qna", qna);
 		
 		RequestDispatcher view = request.getRequestDispatcher("/qna/editQna.jsp");

@@ -22,7 +22,7 @@
 		<item key="updateSimilarElementsMatchStrategy" value="1"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item key="pageIndex" value="4"/>
+		<item key="pageIndex" value="0"/>
 	</section>
 	<section name="ClasspathContainerSelectionPage">
 		<item key="index" value="7"/>

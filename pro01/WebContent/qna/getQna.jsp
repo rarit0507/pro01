@@ -30,82 +30,55 @@ th.item3 { width:20%; }
 			<nav aria-label="breadcrumb" style="text-align:right">
 			  <ol class="breadcrumb">
 			    <li class="breadcrumb-item"><a href="#">Home</a></li>
-			    <li class="breadcrumb-item"><a href="${path0 }/GetQnaList.do">Qna</a></li>
-			    <li class="breadcrumb-item active" aria-current="page">Qna 상세보기</li>
+			    <li class="breadcrumb-item"><a href="${path0 }/GetQnaList.do">질문 및 답변</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">질문 및 답변 상세보기</li>
 			  </ol>
 			</nav>
 			<hr>
 		</div>
 		<div style="width:1400px; margin:0 auto;">
-			<h3 class="page_title">Qna 상세보기</h3>
+			<h3 class="page_title">질문 및 답변 상세보기</h3>
 			<div>
 				<table class="table">
-					<thead><strong>질문</strong></thead>
 					<tbody>
 						<tr>
 							<th>글 번호</th>
-							<td>${qnaq.no }</td>
-							<th>작성일시</th>
-							<td>${qnaq.resdate }</td>
-							<th>조회수</th>
-							<td>${qnaq.visited }</td>
+							<td>${qna.no }</td>
 						</tr>
 						<tr>
 							<th>글 제목</th>
-							<td>${qnaq.title }</td>
+							<td>${qna.title }</td>
 						</tr>
 						<tr>
 							<th>글 내용</th>
-							<td>${qnaq.content }</td>
+							<td>${qna.content }</td>
+						</tr>
+						<tr>
+							<th>작성일시</th>		
+							<td>${qna.resdate }</td>
+						</tr>
+						<tr>
+							<th>조회수</th>
+							<td>${qna.visited }</td>
 						</tr>
 					</tbody>
 				</table>
 				<hr>
 				<div class="btn-group">
-				  <c:if test="${(not empty sid) and sid.equals('admin') and qnaq.plevel==1 }">
-				  <a href="${path0 }/qna/aIns.jsp?parno=${qnaq.no }" class="btn btn-secondary">답변 등록</a>
+				  <c:if test="${sid.equals('admin') and qna.plevel==1 }">
+				  <a href="${path0 }/qna/aIns.jsp?parno=${qna.no }" class="btn btn-secondary">답변 등록</a>
 				  </c:if>
-				  <c:if test="${sid.equals(qnaq.aid) }">
-					  <c:if test="${qnaq.plevel==1 }">
-					   <a href="${path0 }/EditQna.do?no=${qnaq.no }" class="btn btn-secondary">질문 수정</a>
-					   <a href="${path0 }/DelQuestion.do?parno=${qnaq.no }" class="btn btn-secondary">질문 삭제</a>
+				  <c:if test="${sid.equals(qna.aid) }">
+					  <c:if test="${qna.plevel==1 }">
+					  <a href="${path0 }/EditQna.do?no=${qna.no }" class="btn btn-secondary">질문 수정</a>
+					  <a href="${path0 }/DelQuestion.do?parno=${qna.no }" class="btn btn-secondary">질문 삭제</a>
 					  </c:if>
-					  <a href="${path0 }/GetQnaList.do" class="btn btn-secondary">Qna 목록</a>
-				  </c:if>
-				</div>
-					<hr>
-					<hr>
-				<c:if test="${not empty qnaa}">
-				    <table class="table">
-				        <thead><strong>답변</strong></thead>
-				        <tbody>
-				            <tr>
-				                <th>글 번호</th>
-				                <td>${qnaa.no}</td>
-				                <th>작성일시</th>
-				                <td>${qnaa.resdate}</td>
-				            </tr>
-				            <tr>
-				                <th>글 제목</th>
-				                <td>${qnaa.title}</td>
-				            </tr>
-				            <tr>
-				                <th>글 내용</th>
-				                <td>${qnaa.content}</td>
-				            </tr>
-				        </tbody>
-				    </table>
-				</c:if>
-				<c:if test="${empty qnaa }">
-				    <strong>아직 답변이 등록되지 않았습니다.</strong>
-				</c:if>
-				<hr>
-				<div class="btn-group">
-					  <c:if test="${qnaa.plevel==2 }">
-					  <a href="${path0 }/EditQna.do?parno=${qnaa.parno }" class="btn btn-secondary">답변 수정</a>
-					  <a href="${path0 }/DelAnswer.do?parno=${qnaa.parno }" class="btn btn-secondary">답변 삭제</a>
+					  <c:if test="${qna.plevel==2 }">
+					  <a href="${path0 }/EditQna.do?no=${qna.no }" class="btn btn-secondary">답변 수정</a>
+					  <a href="${path0 }/DelAnswer.do?no=${qna.no }" class="btn btn-secondary">답변 삭제</a>
 					  </c:if>
-				  <a href="${path0 }/GetQnaList.do" class="btn btn-secondary">Qna 목록</a>
+  				  </c:if>
+				  <a href="${path0 }/GetQnaList.do" class="btn btn-secondary">질문 및 답변 목록</a>
 				</div>
 			</div>
 		</div>

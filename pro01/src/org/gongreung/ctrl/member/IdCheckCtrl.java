@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.gongreung.ctrl.dao.MemberDAO;
+import org.gongreung.dao.MemberDAO;
 import org.json.JSONObject;
 
 @WebServlet("/IdCheck.do")
